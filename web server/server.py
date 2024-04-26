@@ -4,21 +4,11 @@ app = Flask(__name__)
 print(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return render_template('./index.html')
+@app.route('/<string:page>')
+def html_page(page =None):
+    return render_template(page )
 
 
-@app.route('/about')
-def about():
-    return render_template('./about.html')
 
 
-@app.route('/blog')
-def blog():
-    return 'These are my thoughts on blogs'
 
-
-@app.route('/blog/2020/dogs')
-def blog2():
-    return 'this is my dog'
